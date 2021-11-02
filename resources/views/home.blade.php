@@ -24,7 +24,7 @@
     <div class="row mt-5">
         @foreach ($tweets as $tweet)
         <div class="tweet_content col-10 mx-auto border bg-white p-2">
-            <p>{{$tweet->user->name}}　{{$tweet->updated_at}}</p>
+            <p><a href="{{$tweet->user->name}}">{{$tweet->user->name}}</a>　{{$tweet->updated_at}}</p>
             {{-- {!! !!}を使ってエスケープ無効化にする --}}
             {{-- でもmakelink側でヘルパ関数のeを使って対策済み --}}
             <p>{!! nl2br($tweet->makelink()) !!}</p>
