@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="row">
-    <form class="col-10 mx-auto" action="/mypage/edit" method="POST">
+    <form class="col-10 mx-auto" action="/{{$tweet->user->name}}/edit" method="POST">
         @csrf
         <input type="hidden" name="id" value="{{$tweet->id}}">
         <div>

@@ -67,7 +67,7 @@
                                     {{ __('Logout') }}
                                 </a>
                                 {{-- マイページ追加 --}}
-                                <a class="dropdown-item" href="{{route('mypage')}}">mypage</a>
+                                <a class="dropdown-item" href="{{route('user_page',Auth::user()->name)}}">mypage</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">

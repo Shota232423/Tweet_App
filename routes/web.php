@@ -21,13 +21,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::post('/home', 'HomeController@tweet');
 
-// マイページ
-Route::get('/mypage', 'MypageController@index')->name('mypage')->middleware('auth');
 //削除
-Route::get('/mypage/del/{id}', 'MypageController@del')->name('mypage_del')->middleware('auth');
+Route::get('/{name}/del/{id}', 'UserPageController@del')->name('userpage_del')->middleware('auth');
 //編集
-Route::get('/mypage/edit/{id}', 'MypageController@edit')->name('mypage_edit')->middleware('auth');
-Route::post('/mypage/edit', 'MypageController@update');
-
-//テスト
-Route::get('{name}','UserPageController@index')->middleware(UserMiddleware::class);
+Route::get('/{name}/edit/{id}', 'UserPageController@edit')->name('userpage_edit')->middleware('auth');
+Route::post('/{name}/edit', 'UserPageController@update');
+//個別ページを表示
+Route::get('{name}','UserPageController@index')->name('user_page')->middleware(UserMiddleware::class);
